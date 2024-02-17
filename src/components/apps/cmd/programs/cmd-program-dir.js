@@ -1,24 +1,32 @@
-import { getFilesForLocation } from "@/file-system";
+import { getFilesForLocation, resolveRelativePath } from "@/file-system";
 
 /**
  * @param {string} location
  * @param {string[]} args
  * @return {(number|string)[]}
  */
-export function cmdProgramDir(location) {
+export function cmdProgramDir(location, args) {
+	let dirPath = location;
+
+	if (args.length > 1) {
+		return [1, "Too many arguments"];
+	} else if (args.length === 1) {
+		dirPath = resolveRelativePath(location, args[0]);
+	}
+
 	const output = [0];
 
 	output.push(" ");
-	output.push(" Directory of " + getLocationDisplay(location));
+	output.push(" Directory of " + getLocationDisplay(dirPath));
 	output.push(" ");
 
 	output.push(createContentLine(".", "<DIR>"));
 
-	if (location !== "") {
+	if (dirPath !== "") {
 		output.push(createContentLine("..", "<DIR>"));
 	}
 
-	const dirsAndFiles = getFilesForLocation(location, { sort: true });
+	const dirsAndFiles = getFilesForLocation(dirPath, { sort: true });
 	const dirs = dirsAndFiles.filter((f) => f.isDir);
 	const files = dirsAndFiles.filter((f) => !f.isDir);
 

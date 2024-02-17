@@ -128,7 +128,7 @@ export default {
      * @param {string[]} args
      */
     execute(command, args) {
-      console.info("execute cmd", command, args);
+      console.debug("execute cmd", command, args);
 
       command = command.toLowerCase();
 

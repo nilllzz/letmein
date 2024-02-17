@@ -125,3 +125,45 @@ export function resolveFileSystemFileLink(link) {
 
 	return link;
 }
+
+/**
+ * Resolves a potentially relative path to an absolute one.
+ *
+ * @param {string} location Current location as reference for relation.
+ * @param {string} path Path input
+ */
+export function resolveRelativePath(location, path) {
+	path = path.trim();
+	if (path.startsWith("/")) {
+		path = path.substring(1);
+	}
+	if (path.endsWith("/")) {
+		path = path.substring(0, path.length - 1);
+	}
+	if (path === "") {
+		return "";
+	}
+
+	const locationParts = location.split("/").filter((x) => x !== "");
+
+	if (path.startsWith("..")) {
+		if (locationParts.length > 0) {
+			locationParts.pop();
+		}
+		const relativeLocation = locationParts.join("/");
+		console.log(path, locationParts, relativeLocation);
+		path = relativeLocation + path.substring(2);
+	} else if (path.startsWith(".")) {
+		const relativeLocation = locationParts.join("/");
+		path = relativeLocation + path.substring(1);
+	}
+
+	if (path.startsWith("/")) {
+		path = path.substring(1);
+	}
+	if (path.endsWith("/")) {
+		path = path.substring(0, path.length - 1);
+	}
+
+	return path;
+}
