@@ -60,7 +60,7 @@ export default {
   props: {
     time: Number,
   },
-  emits: ["startApp"],
+  emits: ["startApp", "startMenuOpen"],
   data() {
     return {
       startMenuOpen: false,
@@ -80,6 +80,7 @@ export default {
 
     onClickStart() {
       this.startMenuOpen = true;
+      this.$emit("startMenuOpen");
     },
 
     onDismissStartMenu() {

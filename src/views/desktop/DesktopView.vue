@@ -31,7 +31,12 @@
       />
     </div>
 
-    <task-bar class="-taskbar" :time="time" @startApp="onTaskbarStartApp">
+    <task-bar
+      class="-taskbar"
+      :time="time"
+      @startApp="onTaskbarStartApp"
+      @startMenuOpen="onTaskbarStartMenuOpen"
+    >
       <push-button
         v-for="app in apps"
         :key="app.id"
@@ -161,6 +166,10 @@ export default {
     onTaskbarStartApp(appName) {
       const appType = getAppTypeFromName(appName);
       this.addApp(appType, null);
+    },
+
+    onTaskbarStartMenuOpen() {
+      this.activeAppId = -1;
     },
 
     onAppOpenFile(file) {

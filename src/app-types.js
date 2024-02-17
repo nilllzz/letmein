@@ -1,6 +1,6 @@
 import CMDApp from "@/components/apps/cmd/CMDApp.vue";
-import FilePropertiesApp from "@/components/apps/file-properties/FilePropertiesApp.vue";
 import FilesApp from "@/components/apps/files/FilesApp.vue";
+import FilePropertiesApp from "@/components/apps/files/FilesPropertiesApp.vue";
 import IEApp from "@/components/apps/ie/IEApp.vue";
 import NotepadApp from "@/components/apps/notepad/NotepadApp.vue";
 import PaintApp from "@/components/apps/paint/PaintApp.vue";
@@ -22,9 +22,11 @@ export function getAppTypeFromName(appName) {
 			return FilesApp;
 		case "paint":
 			return PaintApp;
-		case "fileProperties":
+		case "fileproperties":
 			return FilePropertiesApp;
 		case "cmd":
 			return CMDApp;
 	}
+
+	throw new Error("Invalid app type requested: " + appName);
 }

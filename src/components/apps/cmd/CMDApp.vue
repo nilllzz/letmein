@@ -51,7 +51,9 @@ export default {
       // Wait for Vue to render the new output text to the element, then scroll it
       // so the newest text appears at the bottom, above the input.
       await this.$nextTick();
-      this.$refs.output.scrollTop = this.$refs.output.scrollHeight;
+      if (this.$refs.output) {
+        this.$refs.output.scrollTop = this.$refs.output.scrollHeight;
+      }
     },
 
     /** @param {string} location */
@@ -144,6 +146,9 @@ export default {
         case "reset":
           this.output = "";
           this.printStartScreen();
+          break;
+        case "exit":
+          this.$emit("requestExit");
           break;
         case "cd":
           {

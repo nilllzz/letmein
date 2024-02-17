@@ -134,8 +134,13 @@ export function resolveFileSystemFileLink(link) {
  */
 export function resolveRelativePath(location, path) {
 	path = path.trim();
+
+	let isRelative = false;
+
 	if (path.startsWith("/")) {
 		path = path.substring(1);
+	} else {
+		isRelative = true;
 	}
 	if (path.endsWith("/")) {
 		path = path.substring(0, path.length - 1);
@@ -151,11 +156,16 @@ export function resolveRelativePath(location, path) {
 			locationParts.pop();
 		}
 		const relativeLocation = locationParts.join("/");
-		console.log(path, locationParts, relativeLocation);
 		path = relativeLocation + path.substring(2);
+		isRelative = false;
 	} else if (path.startsWith(".")) {
 		const relativeLocation = locationParts.join("/");
 		path = relativeLocation + path.substring(1);
+		isRelative = false;
+	}
+
+	if (isRelative) {
+		path = location + "/" + path;
 	}
 
 	if (path.startsWith("/")) {
