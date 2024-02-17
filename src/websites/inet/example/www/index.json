@@ -1,0 +1,49 @@
+{
+    "title": "Tutorial",
+    "style": "simple",
+    "blocks": [
+        {
+            "type": "heading",
+            "data": {
+                "level": 1,
+                "text": "The ULTIMATE example experience on the iNet!"
+            }
+        },
+        {
+            "type": "image",
+            "data": {
+                "src": "under-construction.gif"
+            }
+        },
+        {
+            "type": "paragraph",
+            "data": {
+                "text": "Complete this form to sign up to our newsletter :-)"
+            }
+        },
+        {
+            "type": "form",
+            "form": "index"
+        }
+    ],
+    "forms": [
+        {
+            "id": "index",
+            "fieldsets": [
+                {
+                    "id": "index",
+                    "label": "Signup Form",
+                    "controls": [
+                        {
+                            "id": "captcha-0",
+                            "type": "captcha-simple",
+                            "label": "",
+                            "required": true,
+                            "data": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

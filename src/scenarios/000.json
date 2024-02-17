@@ -1,0 +1,64 @@
+{
+    "info": {
+        "name": "example.inet",
+        "difficulty": 1
+    },
+    "files": [
+        {
+            "location": "Desktop",
+            "name": "README.txt",
+            "icon": "file-txt",
+            "app": "notepad",
+            "content": "Let Me In! is a game all about signing up to (imaginary) web pages using an interactive recreation of the Windows 98 desktop.\n\nYou can find a timer in the bottom right corner of the screen, if you care for such things. It has already started, but don't worry: You can always retry scenarios, and this is just the tutorial.\n\nTo start off, double-click the website shortcut on the desktop and complete the form in the page that opens.\n\nOnce you do, this tutorial scenario will complete and your time will be saved. You can retry this scenario, or play the next one that unlocked from completing this tutorial.\n\n"
+        },
+        {
+            "location": "Memes",
+            "name": "lmao.bmp",
+            "icon": "file-img",
+            "app": "paint",
+            "content": "file://000/meme-1.png"
+        },
+        {
+            "location": "Desktop",
+            "name": "example.inet",
+            "icon": "file-url",
+            "app": "ie",
+            "content": "http://www.example.inet"
+        },
+        {
+            "location": "Desktop/test",
+            "name": "awesome.inet",
+            "icon": "file-url",
+            "app": "ie",
+            "content": "http://www.awesome.inet"
+        },
+        {
+            "location": "Desktop/TOP SECRET",
+            "name": "credit-card.txt",
+            "icon": "file-txt",
+            "app": "notepad",
+            "content": "IBAN: US12 4132 7761 1344 0000 4418\nExp: 05/2023\nSec: 831"
+        },
+        {
+            "location": "",
+            "name": "test.txt",
+            "icon": "file-txt",
+            "app": "notepad",
+            "content": "test"
+        },
+        {
+            "location": "Folder",
+            "name": "test.txt",
+            "icon": "file-txt",
+            "app": "notepad",
+            "content": "test"
+        },
+        {
+            "location": "Folder/Subfolder",
+            "name": "awesome.txt",
+            "icon": "file-txt",
+            "app": "notepad",
+            "content": "Are you parallel parking adjacent to my train of thought?"
+        }
+    ]
+}
